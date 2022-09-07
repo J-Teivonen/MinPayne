@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed;
-    public float rotationspeed;
+    public static float speed;
+    public static float rotationspeed;
     private Rigidbody playerRig;
-    private Vector3 moveDirection;
+    public static Vector3 moveDirection;
     private float horizontalInput;
     private float verticalInput;
     private Vector3 vImput;
@@ -27,7 +27,11 @@ public class Movement : MonoBehaviour
        horizontalInput = Input.GetAxis("Horizontal");
        verticalInput = Input.GetAxis("Vertical");
        vImput = new Vector3(verticalInput, playerRig.velocity.y, horizontalInput);
-       moveDirection = new Vector3(verticalInput, 0, horizontalInput);
+       if (horizontalInput + verticalInput != 0)
+       {
+            moveDirection = new Vector3(verticalInput, 0, horizontalInput);
+       }
+    
     }
 
     //Update called 100times / second
@@ -35,10 +39,9 @@ public class Movement : MonoBehaviour
     {
         playerRig.MovePosition(transform.position + vImput * Time.deltaTime * speed);
 
-        //Rotating towards the direction of movement
-        if (moveDirection != Vector3.zero)
+        if (transform.forward.normalized != HeadMovement.facingDirection.normalized)
         {
-            playerRig.MoveRotation(Quaternion.RotateTowards(playerRig.rotation, Quaternion.LookRotation(moveDirection, Vector3.up), rotationspeed * Time.fixedDeltaTime));
+            playerRig.MoveRotation(Quaternion.RotateTowards(playerRig.rotation, Quaternion.LookRotation(HeadMovement.facingDirection, Vector3.up), rotationspeed / 1.5f * Time.fixedDeltaTime));
         }
 
     }
