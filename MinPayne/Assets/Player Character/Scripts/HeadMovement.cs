@@ -36,7 +36,7 @@ public class HeadMovement : MonoBehaviour
         {
             if (cameraRayHit.transform.tag != "Player")
             {
-                targetPosition = new Vector3(cameraRayHit.point.x, transform.position.y, cameraRayHit.point.z);
+                targetPosition = new Vector3(cameraRayHit.point.x, cameraRayHit.point.y, cameraRayHit.point.z);
             }
 
         }
@@ -46,15 +46,15 @@ public class HeadMovement : MonoBehaviour
         //Head rotation
         if (Movement.moveDirection != Vector3.zero & leftClick == false)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(Movement.moveDirection, Vector3.up), Movement.rotationspeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Lerp(Quaternion.LookRotation(Movement.moveDirection, Vector3.up), Movement.playerRig.rotation, 0.5f), Movement.rotationspeed * Time.fixedDeltaTime);
         }
         else if (leftClick)
         {
-            transform.LookAt(targetPosition);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Lerp(Quaternion.LookRotation(targetPosition, Vector3.up), Movement.playerRig.rotation, 0.5f), Movement.rotationspeed * Time.fixedDeltaTime);
             Movement.moveDirection = transform.forward;
         }
 
-        facingDirection = transform.forward;
+        facingDirection = new Vector3(transform.forward.x, 0, transform.forward.z);
 
         //Reset mouse following action after two seconds
         resetTimer += Time.fixedDeltaTime;

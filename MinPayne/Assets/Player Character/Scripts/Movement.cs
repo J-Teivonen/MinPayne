@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     public static float speed;
     public static float rotationspeed;
-    private Rigidbody playerRig;
+    public static Rigidbody playerRig;
     public static Vector3 moveDirection;
     private float horizontalInput;
     private float verticalInput;
