@@ -13,7 +13,6 @@ public class Movement : MonoBehaviour
     private Vector3 vImput;
    
 
-    // Start is called before the first frame update
     void Start()
     {
         playerRig = GetComponent<Rigidbody>();
@@ -21,9 +20,9 @@ public class Movement : MonoBehaviour
         rotationspeed = 300;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Player input
        horizontalInput = Input.GetAxis("Horizontal");
        verticalInput = Input.GetAxis("Vertical");
        vImput = new Vector3(verticalInput, playerRig.velocity.y, horizontalInput);
@@ -34,11 +33,12 @@ public class Movement : MonoBehaviour
     
     }
 
-    //Update called 100times / second
     private void FixedUpdate()
     {
+        //Player movement
         playerRig.MovePosition(transform.position + vImput * Time.deltaTime * speed);
 
+        //Rotate body towards head facing
         if (transform.forward.normalized != HeadMovement.facingDirection.normalized)
         {
             playerRig.MoveRotation(Quaternion.RotateTowards(playerRig.rotation, Quaternion.LookRotation(HeadMovement.facingDirection, Vector3.up), rotationspeed / 1.5f * Time.fixedDeltaTime));

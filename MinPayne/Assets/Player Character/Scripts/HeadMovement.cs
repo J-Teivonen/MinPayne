@@ -15,13 +15,11 @@ public class HeadMovement : MonoBehaviour
     Ray cameraRay;
     RaycastHit cameraRayHit;
 
-    // Start is called before the first frame update
     void Start()
     {
         transform.Rotate(transform.forward);
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Mouse follow activation
