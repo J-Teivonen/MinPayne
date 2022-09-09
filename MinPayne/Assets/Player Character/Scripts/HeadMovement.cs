@@ -7,12 +7,12 @@ using UnityEngine.EventSystems;
 
 public class HeadMovement : MonoBehaviour
 {
-    public GameObject Head;
     private float resetTimer;
-    private bool leftClick;
+    public static bool leftClick;
+    public static Vector3 headPos;
     public static Vector3 facingDirection;
     public static Vector3 targetPosition;
-    private Vector3 targetDirection;
+    public static Vector3 targetDirection;
     Ray cameraRay;
     RaycastHit cameraRayHit;
     private string[] hitList;
@@ -30,6 +30,7 @@ public class HeadMovement : MonoBehaviour
         {
             leftClick = true;
             resetTimer = 0.0f;
+            headPos = transform.position;
         }
     }
 
