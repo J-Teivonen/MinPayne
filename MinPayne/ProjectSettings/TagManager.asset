@@ -8,6 +8,9 @@ TagManager:
   - Wall
   - Furniture
   - Lighting
+  - PoI
+  - bullet
+  - Prop
   layers:
   - Default
   - TransparentFX
