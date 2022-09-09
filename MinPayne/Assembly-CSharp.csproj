@@ -61,6 +61,9 @@
     <Compile Include="Assets\Player Character\Scripts\CameraFollow.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Wand and Circles\Polygon City Free Pack - Environment and Interior\Materials\Double Sided Standard Diffuse Bump.shader" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\2021.3.8f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

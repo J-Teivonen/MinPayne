@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,17 +8,19 @@ using UnityEngine.EventSystems;
 public class HeadMovement : MonoBehaviour
 {
     public GameObject Head;
-    private Vector3 mousePos;
     private float resetTimer;
     private bool leftClick;
     public static Vector3 facingDirection;
-    private Vector3 targetPosition;
+    public static Vector3 targetPosition;
+    private Vector3 targetDirection;
     Ray cameraRay;
     RaycastHit cameraRayHit;
+    private string[] hitList;
 
     void Start()
     {
         transform.Rotate(transform.forward);
+        hitList = new string[] { "Furniture", "Floor", "Wall", "Player" };
     }
 
     void Update()
@@ -28,27 +31,31 @@ public class HeadMovement : MonoBehaviour
             leftClick = true;
             resetTimer = 0.0f;
         }
-        //Mouse placement ingame detection based on camera ray collision
-        cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(cameraRay, out cameraRayHit))
-        {
-            if (cameraRayHit.transform.tag != "Player")
-            {
-                targetPosition = new Vector3(cameraRayHit.point.x, cameraRayHit.point.y, cameraRayHit.point.z);
-            }
-
-        }
     }
+
     private void FixedUpdate()
     {
+        //Mouse placement ingame detection based on camera ray collision
+        cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.Log(cameraRay);
+        if (Physics.Raycast(cameraRay, out cameraRayHit))
+        {
+            if (hitList.Contains(cameraRayHit.transform.tag))
+            {
+                targetPosition = cameraRayHit.point;
+                Debug.Log(cameraRayHit.transform.tag);
+                targetDirection = targetPosition - transform.position;
+            }
+        }
+
         //Head rotation
-        if (Movement.moveDirection != Vector3.zero & leftClick == false)
+        if (Movement.moveDirection != Vector3.zero & !leftClick)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Lerp(Quaternion.LookRotation(Movement.moveDirection, Vector3.up), Movement.playerRig.rotation, 0.5f), Movement.rotationspeed * Time.fixedDeltaTime);
         }
         else if (leftClick)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Lerp(Quaternion.LookRotation(targetPosition, Vector3.up), Movement.playerRig.rotation, 0.5f), Movement.rotationspeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Slerp(Quaternion.LookRotation(targetDirection, Vector3.up), Movement.playerRig.rotation, 0.5f), Movement.rotationspeed * Time.fixedDeltaTime);
             Movement.moveDirection = transform.forward;
         }
 
