@@ -355,8 +355,13 @@
 "Assets/Pekdata/PekdataCRTMonitor/Scripts/ExampleBullet.cs"
 "Assets/Pekdata/PekdataCRTMonitor/Scripts/ExplodableMonitor.cs"
 "Assets/Player Character/Scripts/CameraFollow.cs"
+"Assets/Player Character/Scripts/HandMovementL.cs"
+"Assets/Player Character/Scripts/HandMovementR.cs"
 "Assets/Player Character/Scripts/HeadMovement.cs"
 "Assets/Player Character/Scripts/Movement.cs"
+"Assets/Player Character/Scripts/PocketFinder.cs"
+"Assets/Player Character/Scripts/SoftJointManager.cs"
+"Assets/Props/HandCamera.cs"
 -langversion:9.0
 
 /deterministic

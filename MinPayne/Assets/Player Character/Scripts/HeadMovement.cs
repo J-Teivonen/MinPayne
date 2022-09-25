@@ -38,13 +38,12 @@ public class HeadMovement : MonoBehaviour
     {
         //Mouse placement ingame detection based on camera ray collision
         cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.Log(cameraRay);
         if (Physics.Raycast(cameraRay, out cameraRayHit))
         {
             if (hitList.Contains(cameraRayHit.transform.tag))
             {
                 targetPosition = cameraRayHit.point;
-                Debug.Log(cameraRayHit.transform.tag);
+                //Debug.Log(cameraRayHit.transform.tag);
                 targetDirection = targetPosition - transform.position;
             }
         }

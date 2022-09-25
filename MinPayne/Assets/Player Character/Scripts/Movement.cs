@@ -15,9 +15,9 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        playerRig = GetComponent<Rigidbody>();
         speed = 3;
         rotationspeed = 300;
+        playerRig = GetComponentInChildren<Rigidbody>();
     }
 
     void Update()
@@ -36,13 +36,14 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         //Player movement
-        playerRig.MovePosition(transform.position + vImput * Time.deltaTime * speed);
+        playerRig.MovePosition(playerRig.position + vImput * Time.deltaTime * speed);
 
         //Rotate body towards head facing
         if (transform.forward.normalized != HeadMovement.facingDirection.normalized)
         {
             playerRig.MoveRotation(Quaternion.RotateTowards(playerRig.rotation, Quaternion.LookRotation(HeadMovement.facingDirection, Vector3.up), rotationspeed / 1.5f * Time.fixedDeltaTime));
         }
+
 
     }
 }
