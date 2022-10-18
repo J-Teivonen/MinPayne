@@ -8,7 +8,7 @@ using UnityEngine;
 public class HandMovementL : MonoBehaviour
 {
     public static Rigidbody handL;
-    private CharacterJoint pocketString;
+    private CharacterJoint pocketJoint;
     private bool idle;
 
     void Start()
@@ -31,24 +31,17 @@ public class HandMovementL : MonoBehaviour
         if (!HandMovementR.itemEquip & !idle)
         {
             handL.useGravity = false;
-            pocketString = handL.transform.AddComponent<CharacterJoint>();
-            pocketString.anchor = new Vector3(0, -0.5f, 0);
-            pocketString.axis = Vector3.forward;
-            pocketString.highTwistLimit = SoftJointManager.jointFetch(pocketString.highTwistLimit, Vector3.zero);
-            pocketString.lowTwistLimit = SoftJointManager.jointFetch(pocketString.lowTwistLimit, Vector3.zero);
-            handL.GetComponent<CharacterJoint>().connectedBody = PocketFinder.pocket("left");
-            Vector3 handStart = pocketString.connectedAnchor;
-            pocketString.autoConfigureConnectedAnchor = false;
-            pocketString.connectedAnchor = handStart;
+            pocketJoint = SoftJointManager.pocketString(handL.gameObject, "left");
+
         }
         else if (HandMovementR.itemEquip & idle)
         {
-            Destroy(pocketString);
+            Destroy(pocketJoint);
         }
 
-        if (idle && pocketString.connectedAnchor != Vector3.zero)
+        if (idle && pocketJoint.connectedAnchor != Vector3.zero)
         {
-            pocketString.connectedAnchor = Vector3.Lerp(pocketString.connectedAnchor, new Vector3(-0.3f, 0.1f, 0), 0.1f);
+            pocketJoint.connectedAnchor = Vector3.Lerp(pocketJoint.connectedAnchor, new Vector3(0, 0.2f, 0), 0.1f);
         }
         else
         {

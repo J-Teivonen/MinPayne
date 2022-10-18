@@ -8,11 +8,8 @@ using UnityEngine;
 public class HandMovementR : MonoBehaviour
 {
     public static bool itemEquip;
-    public static int item;
-    public static string[] itemList;
     public static Rigidbody handR;
-    private KeyCode[] numberKeys;
-    private CharacterJoint pocketString;
+    private CharacterJoint pocketJoint;
     private bool idle;
 
     void Start()
@@ -21,9 +18,6 @@ public class HandMovementR : MonoBehaviour
         idle = true;
         handR.sleepThreshold = 0;
         itemEquip = false;
-        item = 0;
-        numberKeys = new KeyCode[] { KeyCode.Alpha1, KeyCode.Alpha2 };
-        itemList = new string[] { "camera", "gun" };
     }
 
     void Update()
@@ -35,18 +29,6 @@ public class HandMovementR : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Q))
         {
             itemEquip = false;
-        }
-
-        if (!Input.anyKeyDown)
-        {
-            return;
-        }
-        for (int i = 0; i < numberKeys.Length; i++)
-        {
-            if (Input.GetKeyDown(numberKeys[i]))
-            {
-                item = i;
-            }
         }
     }
 
@@ -64,24 +46,16 @@ public class HandMovementR : MonoBehaviour
         if (!itemEquip & !idle)
         {
             handR.useGravity = false;
-            pocketString = handR.transform.AddComponent<CharacterJoint>();
-            pocketString.anchor = new Vector3(0, -0.5f, 0);
-            pocketString.axis = Vector3.forward;
-            pocketString.highTwistLimit = SoftJointManager.jointFetch(pocketString.highTwistLimit, Vector3.zero);
-            pocketString.lowTwistLimit = SoftJointManager.jointFetch(pocketString.lowTwistLimit, Vector3.zero);
-            handR.GetComponent<CharacterJoint>().connectedBody = PocketFinder.pocket("right");
-            Vector3 handStart = pocketString.connectedAnchor;
-            pocketString.autoConfigureConnectedAnchor = false;
-            pocketString.connectedAnchor = handStart;
+            pocketJoint = SoftJointManager.pocketString(handR.gameObject, "right");
         }
         else if (itemEquip & idle)
         {
-            Destroy(pocketString);
+            Destroy(pocketJoint);
         }
 
-        if (idle && pocketString.connectedAnchor != Vector3.zero)
+        if (idle && pocketJoint.connectedAnchor != Vector3.zero)
         {
-            pocketString.connectedAnchor = Vector3.Lerp(pocketString.connectedAnchor, new Vector3(-0.3f, 0.1f, 0), 0.1f);
+            pocketJoint.connectedAnchor = Vector3.Lerp(pocketJoint.connectedAnchor, new Vector3(0, 0.2f, 0), 0.1f);
         }
         else
         {

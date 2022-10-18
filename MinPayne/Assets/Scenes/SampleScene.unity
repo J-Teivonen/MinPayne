@@ -2654,7 +2654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257218271}
   m_LocalRotation: {x: 0.39044833, y: 0.34682897, z: -0.161729, w: 0.8373192}
-  m_LocalPosition: {x: -15, y: 0, z: -15}
+  m_LocalPosition: {x: -15, y: 2, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2916,7 +2916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4526375024972478606, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.418
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4526375024972478606, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2949,54 +2949,6 @@ PrefabInstance:
     - target: {fileID: 4526375024972478606, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_Axis.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_Axis.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_SwingAxis.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_SwingAxis.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_EnableCollision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_Swing2Limit.limit
-      value: 35.871506
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_LowTwistLimit.limit
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_HighTwistLimit.limit
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_SwingLimitSpring.damper
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_SwingLimitSpring.spring
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_TwistLimitSpring.damper
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133812361308556337, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
-      propertyPath: m_TwistLimitSpring.spring
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8961000817978258103, guid: 8bd81900131732243be29c2b42890d8d, type: 3}
       propertyPath: m_Enabled
@@ -3200,7 +3152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670491674}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.4357924, y: -2.6000607, z: -7.6172814}
+  m_LocalPosition: {x: 4.4357924, y: 0, z: -7.6172814}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
