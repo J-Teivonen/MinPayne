@@ -59,13 +59,13 @@
     <Compile Include="Assets\Pekdata\PekdataCRTMonitor\Scripts\ExampleBullet.cs" />
     <Compile Include="Assets\Player Character\Scripts\PocketFinder.cs" />
     <Compile Include="Assets\Player Character\Scripts\Movement.cs" />
+    <Compile Include="Assets\Player Character\Scripts\HandMovement.cs" />
     <Compile Include="Assets\Player Character\Scripts\PropManager.cs" />
-    <Compile Include="Assets\Props\GunFunction.cs" />
-    <Compile Include="Assets\Player Character\Scripts\SoftJointManager.cs" />
-    <Compile Include="Assets\Player Character\Scripts\HandMovementL.cs" />
+    <Compile Include="Assets\Props\Scripts\PropFunction.cs" />
+    <Compile Include="Assets\Player Character\Scripts\JointManager.cs" />
+    <Compile Include="Assets\Player Character\Scripts\ArmMovementL.cs" />
     <Compile Include="Assets\Player Character\Scripts\HeadMovement.cs" />
-    <Compile Include="Assets\Props\HandCameraFunction.cs" />
-    <Compile Include="Assets\Player Character\Scripts\HandMovementR.cs" />
+    <Compile Include="Assets\Player Character\Scripts\ArmMovementR.cs" />
     <Compile Include="Assets\Pekdata\PekdataCRTMonitor\Scripts\ExplodableMonitor.cs" />
     <Compile Include="Assets\Player Character\Scripts\CameraFollow.cs" />
   </ItemGroup>

@@ -354,16 +354,16 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Pekdata/PekdataCRTMonitor/Scripts/ExampleBullet.cs"
 "Assets/Pekdata/PekdataCRTMonitor/Scripts/ExplodableMonitor.cs"
+"Assets/Player Character/Scripts/ArmMovementL.cs"
+"Assets/Player Character/Scripts/ArmMovementR.cs"
 "Assets/Player Character/Scripts/CameraFollow.cs"
-"Assets/Player Character/Scripts/HandMovementL.cs"
-"Assets/Player Character/Scripts/HandMovementR.cs"
+"Assets/Player Character/Scripts/HandMovement.cs"
 "Assets/Player Character/Scripts/HeadMovement.cs"
+"Assets/Player Character/Scripts/JointManager.cs"
 "Assets/Player Character/Scripts/Movement.cs"
 "Assets/Player Character/Scripts/PocketFinder.cs"
 "Assets/Player Character/Scripts/PropManager.cs"
-"Assets/Player Character/Scripts/SoftJointManager.cs"
-"Assets/Props/GunFunction.cs"
-"Assets/Props/HandCameraFunction.cs"
+"Assets/Props/Scripts/PropFunction.cs"
 -langversion:9.0
 
 /deterministic
